@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<personnage name="Test" version="1.0" gencrossVersion="1.14"
+		xmlns="https://gencross-plugin.mrprez.com"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<phase name="Création"/>
+	<phaseList>
+		<phase name="Création"/>
+		<phase name="En Vie"/>
+	</phaseList>
+	<pointPools>
+		<pool name="Points d'attributs" remaining="10" total="10" toEmpty="true"/>
+		<pool name="Points de compétences" remaining="0" total="0" toEmpty="true"/>
+		<pool name="Points d'expérience" remaining="0" total="0" toEmpty="false"/>
+	</pointPools>
+	<properties>
+		<property editable="true" name="Nom">
+			<Value class="com.mrprez.gencross.value.StringValue"></Value>
+		</property>
+		<property editable="true" name="Age">
+			<Value class="com.mrprez.gencross.value.StringValue">20</Value>
+		</property>
+		<property editable="false" name="Attributs">
+			<propertiesList fixe="true" open="false">
+				<properties>
+					<property editable="true" name="Force">
+						<Value class="com.mrprez.gencross.value.IntValue">1</Value>
+						<min>
+							<Value class="com.mrprez.gencross.value.IntValue">1</Value>
+						</min>
+						<max>
+							<Value class="com.mrprez.gencross.value.IntValue">5</Value>
+						</max>
+					</property>
+					<property editable="true" name="Agilité">
+						<Value class="com.mrprez.gencross.value.IntValue">1</Value>
+						<min>
+							<Value class="com.mrprez.gencross.value.IntValue">1</Value>
+						</min>
+						<max>
+							<Value class="com.mrprez.gencross.value.IntValue">5</Value>
+						</max>
+					</property>
+					<property editable="true" name="Intelligence">
+						<Value class="com.mrprez.gencross.value.IntValue">1</Value>
+						<min>
+							<Value class="com.mrprez.gencross.value.IntValue">1</Value>
+						</min>
+						<max>
+							<Value class="com.mrprez.gencross.value.IntValue">5</Value>
+						</max>
+					</property>
+					<property editable="true" name="Charisme">
+						<Value class="com.mrprez.gencross.value.IntValue">1</Value>
+						<min>
+							<Value class="com.mrprez.gencross.value.IntValue">1</Value>
+						</min>
+						<max>
+							<Value class="com.mrprez.gencross.value.IntValue">5</Value>
+						</max>
+					</property>
+				</properties>
+			</propertiesList>
+			<historyFactory class="com.mrprez.gencross.history.ProportionalHistoryFactory">
+				<pointPool>Points d'attributs</pointPool>
+				<args>
+					<arg key="factor">1</arg>
+				</args>
+			</historyFactory>
+		</property>
+		<property editable="false" name="Points de vie">
+			<Value class="com.mrprez.gencross.value.IntValue">7</Value>
+		</property>
+		<property editable="false" name="Compétences">
+			<propertiesList fixe="false" open="true">
+				<properties></properties>
+				<defaultProperty>
+					<property editable="true" name="???">
+						<Value class="com.mrprez.gencross.value.IntValue">1</Value>
+						<min>
+							<Value class="com.mrprez.gencross.value.DoubleValue">1</Value>
+						</min>
+						<max>
+							<Value class="com.mrprez.gencross.value.DoubleValue">10</Value>
+						</max>
+						<historyFactory class="com.mrprez.gencross.history.ProportionalHistoryFactory">
+							<pointPool>Points de compétences</pointPool>
+							<args>
+								<arg key="factor">1</arg>
+							</args>
+						</historyFactory>
+					</property>
+				</defaultProperty>
+			</propertiesList>
+		</property>
+	</properties>
+	<beforeChangeValueListeners></beforeChangeValueListeners>
+	<afterChangeValueListeners></afterChangeValueListeners>
+	<beforeAddPropertyListeners></beforeAddPropertyListeners>
+	<afterAddPropertyListeners></afterAddPropertyListeners>
+	<beforeDeletePropertyListeners></beforeDeletePropertyListeners>
+	<afterDeletePropertyListeners></afterDeletePropertyListeners>
+	<passToNextPhaseListeners></passToNextPhaseListeners>
+	<formulas>
+		<formula>Points de vie=#Attributs#Force# * 2 + 5</formula>
+	</formulas>
+	<history></history>
+</personnage>
